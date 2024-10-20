@@ -1,0 +1,75 @@
+#include<iostream>
+#include<string.h>
+#include<conio.h>
+using namespace std;
+class publication
+{
+	
+    public:
+    char t[10];
+    float p;
+    public:
+    void getdata(void)
+    {
+        cout<<"Enter title of publication:";
+        cin>>t;
+        cout<<"Enter price of publication:";
+        cin>>p;
+
+    }
+    void putdata(void)
+
+    {
+        cout<<"Publication title:"<<t<<endl;
+        cout<<"Publication price:"<<p<<endl;
+    }
+};
+class book :public publication
+{
+    public:
+        int pagecount;
+    public:
+    void getdata(void)
+    {
+        publication::getdata(); //call publication class function to get data
+        {
+            cout<<"Enter Book Page Count:"; //Acquire book datafrom user
+            cin>>pagecount;
+        }
+	}
+    void putdata(void)
+    {
+        publication::putdata();//show publication data
+        cout<<"book page count:"<< pagecount<<endl;//show book data
+}
+};
+class tape:public publication
+    {
+    private:
+        float ptime;
+    public:
+        void getdata(void)
+        {
+            publication::getdata();
+            cout<<"Enter tapes playing time(in min):";
+            cin>>ptime;
+        }
+    void putdata(void)
+
+    {
+	    publication::putdata();
+        cout<<"tapes playing time:"<<ptime<<endl;
+    }
+};
+int main()
+{
+    book b;
+    
+    tape t;
+    b.getdata();
+    t.getdata();
+    b.putdata();
+    t.putdata();
+    getch();
+    return 0;
+}
